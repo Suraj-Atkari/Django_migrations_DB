@@ -11,6 +11,5 @@ class Book(models.Model):
     author = models.CharField(null=True, max_length=55)
     is_bestselling = models.BooleanField(default=False)
 
-
-def __str__(self):
-    return f'{self.title} {self.rating} {self.author} {self.is_bestselling}'
+    def __str__(self):
+        return f'{self.title} {self.rating}'
