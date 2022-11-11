@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Book(models.Model):
-    title = models.CharField(default="Suraj", max_length=55)
+    title = models.CharField(max_length=55)
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)])
     author = models.CharField(null=True, max_length=55)
