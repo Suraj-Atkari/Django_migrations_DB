@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
-urslpatterns = [
-    path("", views.index)
+urlpatterns = [
+    path("", views.index),
+    path("/book_details", views.book_details)
 ]
