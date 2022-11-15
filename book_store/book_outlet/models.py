@@ -12,15 +12,14 @@ class Book(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)])
     author = models.CharField(null=True, max_length=55)
     is_bestselling = models.BooleanField(default=False)
-    slug = models.SlugField(default="", blank=True,
-                            editable=False, null=False, db_index=True)
+    slug = models.SlugField(default="", blank=True, null=False, db_index=True)
 
     def get_absolute_url(self):
         return reverse("book-details", args=[self.slug])
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):        #removed because we have admin class pre_popullated fiedls
+    #     self.slug = slugify(self.title)
+    #     return super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.title} {self.rating}'
