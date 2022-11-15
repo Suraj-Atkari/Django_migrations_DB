@@ -11,6 +11,15 @@ class Address(models.Model):
     postal_code = models.CharField(max_length=80)
     city = models.CharField(max_length=50)
 
+    def Complete_Address(self):
+        return f"{self.street}, {self.city}: {self.postal_code}"
+
+    def __str__(self):
+        return self.Complete_Address()
+
+    class Meta:
+        verbose_name_plural = "Address Entriess"
+
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
