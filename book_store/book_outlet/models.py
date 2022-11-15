@@ -16,7 +16,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     address = models.OneToOneField(
-        "Address", null=True, related_name="address", on_delete=models.CASCADE)
+        "Address", null=True, on_delete=models.CASCADE)
 
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
